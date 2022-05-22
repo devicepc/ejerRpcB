@@ -98,7 +98,7 @@ header label:hover {
 }
 
 
-#framePM001, #framePMFailures001, #frameRamFailures001 {
+#framePM001, #framePMFailures001, #frameRamFailures001, #frameDifRam001 {
     border-radius: 5px;
     background-color: white;
     border: 2px solid black;
@@ -106,34 +106,34 @@ header label:hover {
     width: 95%;
 }
 
-.buttonsPM001 {
+.buttonsPM001, .buttonsDifRam001 {
     background-color: dodgerblue;
     color: white;
     width: 120px;
     height: 50px;
     border-radius: 5px;
 }
-.buttonsFailuresPM001 {
+.buttonsFailuresPM001, .buttonsFailuresDifRam001 {
     background-color: rebeccapurple;
     color: white;
     width: auto;
     height: 50px;
     border-radius: 5px;
 }
-.buttonsPM002, .buttonsPMFailures002, .buttonsRamFailures002 {
+.buttonsPM002, .buttonsPMFailures002, .buttonsRamFailures002, .buttonsDifRamFailures002, .buttonsDifRam002 {
     background-color: blue;
     color: white;
     width: 60px;
     height: 60px;
     border-radius: 5px;
 }
-#messagePM001 img, #messagePMFailures001 img, #messageRam001 img {
+#messagePM001 img, #messagePMFailures001 img, #messageRam001 img, #messageDifRam001 img  {
     height: 200px;
     width: 250px;
     border: #011c39 2px solid;
 }
 
-#fontPM001, #fontPMFailures001, #frameRamFailures001{
+#fontPM001, #fontPMFailures001, #frameRamFailures001 , #frameDifRamFailures001, #fontDifRam001{
     text-align: center;
     font-size: large;
     color: black;   
