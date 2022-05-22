@@ -1,7 +1,7 @@
 
 
 // preguntas de ram
-let questionRamFailures001 = ["<img src=images/placamadre.jpg height=40 /><br /><br />El PC arranca, pero no sale nada en la pantalla...",
+let questionRamFailures001 = ["<img src=images/preguntasPM/monitorNoEnciende.jpg height=40 /><br /><br />El PC arranca, pero no sale nada en la pantalla...",
 "<img src=images/preguntasPM/condensadorRoto.jpeg height=40 /><br /><br />PC arranca, no sale nada en la pantalla y se escuchan pitidos ...",
 "<img src=images/preguntasPM/fallaEnPantalla.jpg height=40 /><br /><br />No pasa el Post Screen y muestra algún mensaje en pantalla ...",
 "<img src=images/preguntasPM/sobreCalentamiento.jpg height=40 /><br /><br />Arranca, pero trascurrido un tiempo el PC se apaga o reinicia ...",
@@ -13,14 +13,14 @@ let questionRamFailures001 = ["<img src=images/placamadre.jpg height=40 /><br />
 
 ];
 
-let optionsRamFailures001 = ["<button class=buttonsFailuresPM001 onclick=qPMf1i()>Equipo con grafica onBoard</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1c()>BIOS desconfigurada, tarjeta gráfica dañada</button>"];
-let optionsRamFailures002 = ["<button class=buttonsFailuresPM001 onclick=qPMf1c()>Componente defectuoso</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1i()>Refrigeracion por defecto</button>"];
-let optionsRamFailures003 = ["<button class=buttonsFailuresPM001 onclick=qPMf1c()>Componente defectuoso, ventilador CPU desconectado, BIOS desconfigurada</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1i()>Iniciando Sistema operativo</button>"];
-let optionsRamFailures004 = ["<button class=buttonsFailuresPM001 onclick=qPMf1i()>Equipo con fuente Modular</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1c()>Sobrecalentamiento, fuente de alimentación</button>"];
-let optionsRamFailures005 = ["<button class=buttonsFailuresPM001 onclick=qPMf1c()>Gráfica dañada</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1i()>Falta floppy</button>"];
-let optionsRamFailures006 = ["<button class=buttonsFailuresPM001 onclick=qPMf1c()>Mal aislamiento</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1i()>No inicializo por SSD</button>"];
-let optionsRamFailures007 = ["<button class=buttonsFailuresPM001 onclick=qPMf1i()>Equipo sin DVD</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1c()>Placa madre rota</button>"];
-let optionsRamFailures008 = ["<button class=buttonsFailuresPM001 onclick=qPMf1c()>Dañada placa</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPMf1i()>Arranque sin disco duro</button>"];
+let optionsRamFailures001 = ["<button class=buttonsFailuresPM001 onclick=qRamf1i()>Equipo con grafica onBoard</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1c()>BIOS desconfigurada, tarjeta gráfica dañada</button>"];
+let optionsRamFailures002 = ["<button class=buttonsFailuresPM001 onclick=qRamf1c()>Componente defectuoso</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1i()>Refrigeracion por defecto</button>"];
+let optionsRamFailures003 = ["<button class=buttonsFailuresPM001 onclick=qRamf1c()>Componente defectuoso, ventilador CPU desconectado, BIOS desconfigurada</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1i()>Iniciando Sistema operativo</button>"];
+let optionsRamFailures004 = ["<button class=buttonsFailuresPM001 onclick=qRamf1i()>Equipo con fuente Modular</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1c()>Sobrecalentamiento, fuente de alimentación</button>"];
+let optionsRamFailures005 = ["<button class=buttonsFailuresPM001 onclick=qRamf1c()>Gráfica dañada</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1i()>Falta floppy</button>"];
+let optionsRamFailures006 = ["<button class=buttonsFailuresPM001 onclick=qRamf1c()>Mal aislamiento</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1i()>No inicializo por SSD</button>"];
+let optionsRamFailures007 = ["<button class=buttonsFailuresPM001 onclick=qRamf1i()>Equipo sin DVD</button><br /><br /><button class=buttonsFailuresPM001 onclick=qRamf1c()>Placa madre rota</button>"];
+let optionsRamFailures008 = ["<button class=buttonsFailuresPM001 onclick=qRamf1c()>Dañada placa</button><br /><br /><button class=buttonsFailuresPM001 onclick=qPRam1i()>Arranque sin disco duro</button>"];
 
 
 let g = 0;
@@ -44,17 +44,17 @@ function qRamf1c() {
 messageRamFailures003.innerHTML = "Correcto";
 messageRamFailures002.innerHTML = "";
 scoreRamFailures001.innerHTML = h++;
-messageRamFailures004.innerHTML = "<button class=buttons002 onclick=nextPMf001()>Siguiente</button>";
+messageRamFailures004.innerHTML = "<button class=buttons002 onclick=nextRamf001()>Siguiente</button>";
 }
 
 function qRamf1i() {
 messageRamFailures003.innerHTML = "Incorrecto";
 messageRamFailures002.innerHTML = "";
-messageRamFailures004.innerHTML = "<button class=buttons002 onclick=nextPMf001()>Siguiente</button>";
+messageRamFailures004.innerHTML = "<button class=buttons002 onclick=nextRamf001()>Siguiente</button>";
 }
 
 function nextRamf001() {
-if (e == "2") {
+if (g == "2") {
     messageRamFailures001.innerHTML = questionRamFailures001[1];
     messageRamFailures002.innerHTML = optionsRamFailures002;
     messageRamFailures003.innerHTML = "";
@@ -62,7 +62,7 @@ if (e == "2") {
     messageRamFailures004.innerHTML = "";
 }
 
-else if (e == "3") {
+else if (g == "3") {
     messageRamFailures001.innerHTML = questionRamFailures001[2];
     messageRamFailures002.innerHTML = optionsRamFailures003;
     messageRamFailures003.innerHTML = "";
@@ -71,7 +71,7 @@ else if (e == "3") {
 }
 
 
-else if (e == "4") {
+else if (g == "4") {
     messageRamFailures001.innerHTML = questionRamFailures001[3];
     messageRamFailures002.innerHTML = optionsRamFailures004;
     messageRamFailures003.innerHTML = "";
@@ -79,7 +79,7 @@ else if (e == "4") {
     messageRamFailures004.innerHTML = "";
 }
 
-else if (e == "5") {
+else if (g == "5") {
     messageRamFailures001.innerHTML = questionRamFailures001[4];
     messageRamFailures002.innerHTML = optionsRamFailures005;
     messageRamFailures003.innerHTML = "";
@@ -87,15 +87,15 @@ else if (e == "5") {
     messageRamFailures004.innerHTML = "";
 }
 
-else if (e == "6") {
-    messageRam001.innerHTML = questionRamFailures001[5];
-    messageRam002.innerHTML = optionsRamFailures006;
-    messageRam003.innerHTML = "";
-    numberRam001.innerHTML = g++;
-    messageRam004.innerHTML = "";
+else if (g == "6") {
+    messageRamFailures001.innerHTML = questionRamFailures001[5];
+    messageRamFailures002.innerHTML = optionsRamFailures006;
+    messageRamFailures003.innerHTML = "";
+    numberRamFailures001.innerHTML = g++;
+    messageRamFailures004.innerHTML = "";
 }
 
-else if (e == "7") {
+else if (g == "7") {
     messageRamFailures001.innerHTML = questionRamFailures001[6];
     messageRamFailures002.innerHTML = optionsRamFailures007;
     messageRamFailures003.innerHTML = "";
@@ -103,7 +103,7 @@ else if (e == "7") {
     messageRamFailures004.innerHTML = "";
 }
 
-else if (e == "8") {
+else if (g == "8") {
     messageRamFailures001.innerHTML = questionRamFailures001[7];
     messageRamFailures002.innerHTML = optionsRamFailures008;
     messageRamFailures003.innerHTML = "";

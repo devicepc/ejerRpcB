@@ -1,4 +1,6 @@
 import {moveRam, movePlaca} from "./moves.js"
+import { init } from "./procesadores.js";
+import { initPregRam} from "./btnsmem.js";
 import{textoCorrecM, textoIncM} from "./variables.js"
 
 // Ejercicio 1 botones
@@ -444,25 +446,34 @@ Mostrarmas.addEventListener("click", function(event){
 // mostrar juegos tipos de ram
 const tiposRam = document.getElementById("TiposRam");
 tiposRam.addEventListener("click", function(event){
+    moveRam();
     Mem.tiposMEMMOstrar();
+    initPregRam();
 });
 // fin mostrar juegos tipos de ram
 // mostrar juegos tipos de ram
 const partesRam = document.getElementById("PartesRam");
 partesRam.addEventListener("click", function(event){
+     moveRam();
     Mem.partesMEMMOstrar();
+    initPregRam();
+    
 });
 // fin mostrar juegos tipos de ram
 // mostrar juegos tipos de ram
 const DifRam = document.getElementById("DifRam");
 DifRam.addEventListener("click", function(event){
+     moveRam();
     Mem.diferMEMMOstrar();
+    initPregRam();
 });
 // fin mostrar juegos tipos de ram
 // mostrar juegos tipos de ram
 const FallasRam = document.getElementById("FallasRam");
 FallasRam.addEventListener("click", function(event){
+     moveRam();
     Mem.fallasMEMMOstrar();
+    initPregRam();
 });
 // fin mostrar juegos tipos de ram
 
@@ -473,12 +484,15 @@ FallasRam.addEventListener("click", function(event){
 const tiposProcesador = document.getElementById("TiposProcesador");
 tiposProcesador.addEventListener("click", function(event){
     Proc.tiposProcMOstrar();
+    init();
 });
 // fin mostrar juegos tipos de Procesador
 // mostrar juegos tipos de Procesador
 const partesProcesador = document.getElementById("PartesProcesador");
 partesProcesador.addEventListener("click", function(event){
     Proc.partesProcMOstrar();
+    init();
+
 });
 // fin mostrar juegos tipos de Procesador
 // mostrar juegos tipos de Procesador
