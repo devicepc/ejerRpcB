@@ -8,7 +8,14 @@ let textoCorrecM = "CORRECTO"
 
 let questionTiposProc = [ "Que socket utiliza este procesador ?", 
 "Que parte es la que tiene impresa la palabra INTEL ? ",
+"¿ En que arquitectura esta basada este procesador ?",
+" ¿ Que procesador es mejor para juegos ?", 
+"¿ Que procesador es mejor para minar datos ?", 
+" ¿ Que procesador es mejor para una oficina de atencion al publico ?", 
+"¿ Que procesador es mejor para un usuartio basico ?"
 
+];
+let questionPartesProc = [   1155
 ];
 
 // preguntas de Ram
@@ -38,9 +45,14 @@ const PregFallasRam = ["El ordenador no arranca después de haber insertado la m
 " Corriendo Memtest me aparece asi, significa : ",
 ];
 
+// preguntas de cpu fallas
+const pregFallasCpu = [{ preguntaUno: "El PC no enciende", respuestauno: "Todas son crorrectas"},
+{ preguntaDos: "Tengo un procesador dañado, cuantos pitidos emite una BIOS American Megatrends ? ", respuestados: "5 pitodos cortos"}, 
+{ preguntaTres: " Al instalar un microprocesador, tu computadora funciona más lenta de lo normal.", respuestatres: "Mal colocado el disipador"},
+{ preguntaCuatro: "Marque que Error no  que producen  pantalla azul en windows: ", respuestacruatro: "Falta de Ram"}]
+const PregCpuFallas3 = ["quien descubrio america", "quien es el mejor superheroe", "quien es pilon"]
+const respCpuFallas =[["caca", "CPU dañado", "Mal colocado disipador", "Todas son crorrectas"],["cas","perro", "malo"],["casss", "gato", "canario"]]
 
 
 
-
-
-export{textoCorrecM, textoIncM, questionTiposProc, questionTiposRam, questionPartesRam, PregDifRam, PregFallasRam};
+export{textoCorrecM, textoIncM, questionTiposProc, questionTiposRam, questionPartesRam, PregDifRam, respCpuFallas, PregFallasRam,PregCpuFallas3, questionPartesProc, pregFallasCpu};

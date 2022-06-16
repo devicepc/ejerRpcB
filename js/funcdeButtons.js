@@ -1,5 +1,5 @@
-import {moveRam, movePlaca} from "./moves.js"
-import { init } from "./procesadores.js";
+import {moveRam, movePlaca, moveFte, moveProc} from "./moves.js"
+import { init} from "./procesadores.js";
 import { initPregRam} from "./btnsmem.js";
 import{textoCorrecM, textoIncM} from "./variables.js"
 
@@ -440,6 +440,7 @@ for (i of btnej11DiferPM) {
 const Mostrarmas = document.getElementById("masJgosMem");
 Mostrarmas.addEventListener("click", function(event){
     Mostrarma();
+    PM.ocultarAllPM();
 });
 
 // fin de mostar juegos
@@ -448,13 +449,17 @@ const tiposRam = document.getElementById("TiposRam");
 tiposRam.addEventListener("click", function(event){
     moveRam();
     Mem.tiposMEMMOstrar();
+    Proc.ocultarAllProc();
     initPregRam();
+    PM.ocultarAllPM();
 });
 // fin mostrar juegos tipos de ram
 // mostrar juegos tipos de ram
 const partesRam = document.getElementById("PartesRam");
 partesRam.addEventListener("click", function(event){
      moveRam();
+     PM.ocultarAllPM();
+     Proc.ocultarAllProc();
     Mem.partesMEMMOstrar();
     initPregRam();
     
@@ -465,13 +470,16 @@ const DifRam = document.getElementById("DifRam");
 DifRam.addEventListener("click", function(event){
      moveRam();
     Mem.diferMEMMOstrar();
+    Proc.ocultarAllProc();
     initPregRam();
+    PM.ocultarAllPM();
 });
 // fin mostrar juegos tipos de ram
 // mostrar juegos tipos de ram
 const FallasRam = document.getElementById("FallasRam");
 FallasRam.addEventListener("click", function(event){
      moveRam();
+     Proc.ocultarAllProc();
     Mem.fallasMEMMOstrar();
     initPregRam();
 });
@@ -483,6 +491,9 @@ FallasRam.addEventListener("click", function(event){
 // mostrar juegos tipos de Procesador
 const tiposProcesador = document.getElementById("TiposProcesador");
 tiposProcesador.addEventListener("click", function(event){
+    Fte.ocultarAllFte();
+    PM.ocultarAllPM();
+     Mem.oculterallMem();
     Proc.tiposProcMOstrar();
     init();
 });
@@ -490,6 +501,9 @@ tiposProcesador.addEventListener("click", function(event){
 // mostrar juegos tipos de Procesador
 const partesProcesador = document.getElementById("PartesProcesador");
 partesProcesador.addEventListener("click", function(event){
+    Fte.ocultarAllFte();
+    PM.ocultarAllPM();
+     Mem.oculterallMem();
     Proc.partesProcMOstrar();
     init();
 
@@ -498,16 +512,24 @@ partesProcesador.addEventListener("click", function(event){
 // mostrar juegos tipos de Procesador
 const DifProcesador = document.getElementById("DifProcesador");
 DifProcesador.addEventListener("click", function(event){
+    Fte.ocultarAllFte();
+    PM.ocultarAllPM();
+     Mem.oculterallMem();
     Proc.diferProcMOstrar();
 });
 // fin mostrar juegos tipos de Procesador
 // mostrar juegos tipos de Procesador
 const FallasProcesador = document.getElementById("FallasProcesador");
 FallasProcesador.addEventListener("click", function(event){
+    Fte.ocultarAllFte();
+    PM.ocultarAllPM();
+    Mem.oculterallMem();
     Proc.fallasProcMOstrar();
+    init();
+    
 });
 // fin mostrar juegos tipos de Procesador
-
+/* 
 // mostrar juegos tipos de TdeVid
 const tiposTdeVid = document.getElementById("TiposTdeVid");
 tiposTdeVid.addEventListener("click", function(event){
@@ -583,7 +605,7 @@ FallasDisco.addEventListener("click", function(event){
 });
 // fin mostrar juegos tipos de Disco
 
-
+ */
 
 
 
@@ -593,116 +615,166 @@ FallasDisco.addEventListener("click", function(event){
 // funcion de ocultar y mostar
 
 function ocultarCorr(){
-    document.getElementById("Pregcorr").style.display="none";
-   
+    document.getElementById("Pregcorr").style.display="none"; 
 }
 const corr = document.getElementById("btncorr");
 corr.addEventListener("click", function(evento){
-    document.getElementById("Pregcorr").style.display="block";
-    ocultarFte();
-    ocultarDifFte();
-    ocultar80plusFte();
-    ocultarConectFte();
-    ocultarFallasFte();
-    moveFTE();
-
+    Fte.tiposFteMOstrar();
+    PM.ocultarAllPM();
+    Proc.ocultarAllProc();
+    moveFte();
 })
-
-
-function ocultarFte(){
-    document.getElementById("PregFte").style.display="none";
-}
+   
 const btnfte = document.getElementById("btnfte");
 btnfte.addEventListener("click", function(event){
-    document.getElementById("PregFte").style.display="block";
-    ocultarCorr();
-    ocultarDifFte();
-     ocultar80plusFte();
-    ocultarConectFte();
-     ocultarFallasFte();  
-     moveFTE();
+    PM.ocultarAllPM();
+    Fte.partesFteMOstrar(); 
+    Proc.ocultarAllProc();
+     moveFte();
 });
 
-function ocultarDifFte(){
-    document.getElementById("PregDifFte").style.display="none";
-}
 const btnDiffte = document.getElementById("btnDiffte");
 btnDiffte.addEventListener("click", function(event){
-
-    document.getElementById("PregDifFte").style.display="block";
-    ocultarCorr();
-    ocultarFte();
-    ocultar80plusFte();
-    ocultarConectFte();
-    ocultarFallasFte();
-    moveFTE();
+    PM.ocultarAllPM();
+Fte.difFteMOstrar(),
+Proc.ocultarAllProc();
+    moveFte();
 });
-function ocultar80plusFte(){
-    document.getElementById("Preg80Plus").style.display="none";
-}
+
 const btn80plusfte = document.getElementById("btn80plusfte");
 btn80plusfte.addEventListener("click", function(event){
-    document.getElementById("Preg80Plus").style.display="block";
-    ocultarFte();
-    ocultarCorr();
-    ocultarDifFte();
-    ocultarConectFte();
-    ocultarFallasFte();
-    moveFTE();
+    PM.ocultarAllPM();
+    Fte.plusFteMOstrar();
+    Proc.ocultarAllProc();
+    moveFte();
 })
 
-function ocultarConectFte(){
-    document.getElementById("PregConexFte").style.display="none";
-}
 const btnConetcFte = document.getElementById("btnConetcFte");
 btnConetcFte.addEventListener("click", function(event){
-    document.getElementById("PregConexFte").style.display="block";
-    ocultarFte();
-    ocultarCorr();
-    ocultarDifFte();
-    ocultar80plusFte();
-    ocultarFallasFte();
-    moveFTE();
+    PM.ocultarAllPM();
+    Fte.coexionesFteMOstrar();
+    Proc.ocultarAllProc();
+    moveFte();
 })
 
-function ocultarFallasFte(){
-    document.getElementById("PregFallasFte").style.display="none";
-}
 const btnFallasFte = document.getElementById("btnFallasFte");
 btnFallasFte.addEventListener("click", function(event){
-    document.getElementById("PregFallasFte").style.display="block";
-    ocultarFte();
-    ocultarCorr();
-    ocultarDifFte();
-    ocultar80plusFte();
-    ocultarConectFte();
-    moveFTE();
+    PM.ocultarAllPM();
+    Fte.FallasFteMOstrar();
+    Proc.ocultarAllProc();
+    moveFte();
 })
+ const Fte ={
+    tiposFteMOstrar: function (){
+        document.getElementById("Pregcorr").style.display="block";
+        this.partesFteOcultar();
+        this.diferPFtecultar();
+        this.fallasFteOcultar();
+        this.plusFteOcultar();
+        this.coexionesFteOcultar();
+        
+    },partesFteMOstrar: function (){
+        document.getElementById("PregFte").style.display="block";
+        this.tiposFteOcultar();
+        this.diferPFtecultar();
+        this.fallasFteOcultar();
+        this.plusFteOcultar();
+        this.coexionesFteOcultar();
+    },
+    difFteMOstrar: function (){
+        document.getElementById("PregDifFte").style.display="block";
+        this.tiposFteOcultar();
+        this.fallasFteOcultar();
+        this.plusFteOcultar();
+        this.coexionesFteOcultar();
+    },
+    plusFteMOstrar: function (){
+        document.getElementById("Preg80Plus").style.display="block";
+        this.partesFteOcultar();
+        this.tiposFteOcultar();
+        this.fallasFteOcultar();
+        this.coexionesFteOcultar();
+    },
+    coexionesFteMOstrar: function (){
+        document.getElementById("PregConexFte").style.display="block";
+        this.partesFteOcultar();
+        this.diferPFtecultar();
+        this.tiposFteOcultar();
+    },
+    FallasFteMOstrar: function (){
+        document.getElementById("PregFallasFte").style.display="block";
+        this.partesFteOcultar();
+        this.diferPFtecultar();
+        this.tiposFteOcultar();
+        this.plusFteOcultar();
+        this.coexionesFteOcultar();
+    },
+
+    tiposFteOcultar: function (){
+        document.getElementById("Pregcorr").style.display="none";
+    },
+    partesFteOcultar: function (){
+        document.getElementById("PregFte").style.display="none";
+    },
+    diferPFtecultar: function (){
+        document.getElementById("PregDifFte").style.display="none";
+    },
+    plusFteOcultar: function(){
+        document.getElementById("Preg80Plus").style.display="none"
+    },
+    coexionesFteOcultar: function (){
+        document.getElementById("PregConexFte").style.display="none";
+    },
+    fallasFteOcultar: function (){
+        document.getElementById("PregFallasFte").style.display="none";
+    }, ocultarAllFte: function(){
+        this.partesFteOcultar();
+        this.diferPFtecultar();
+        this.tiposFteOcultar();
+        this.plusFteOcultar();
+        this.coexionesFteOcultar();
+        this.fallasFteOcultar();
+    }
+ } 
+
 // mover
-function moveFTE(){
+/* function moveFTE(){
     window.scrollTo(0,730);
    
-}
+} */
 
 // funcion de  Placa madre ocultar y mostar
 const TiposPM = document.getElementById("btnTiposPM");
 TiposPM.addEventListener("click", function(event){
     PM.tiposPMMOstrar();
+    Fte.ocultarAllFte();
+    Proc.ocultarAllProc();
+     Mem.oculterallMem();
     movePlaca();
 })
 const PartesPM = document.getElementById("btnPartesPM");
 PartesPM.addEventListener("click", function(event){
     PM.partesPMMOstrar();
+    Fte.ocultarAllFte();
+    Proc.ocultarAllProc();
+     Mem.oculterallMem();
+    Proc.oc
     movePlaca();
 })
 const DiferPM = document.getElementById("btnDiferPM");
 DiferPM.addEventListener("click", function(event){
     PM.diferPMMOstrar();
+    Fte.ocultarAllFte();
+    Proc.ocultarAllProc();
+     Mem.oculterallMem();
     movePlaca();
 })
 const FallassPM = document.getElementById("btnFallasPM");
 FallassPM.addEventListener("click", function(event){
     PM.fallasPMMOstrar();
+    Fte.ocultarAllFte();
+    Proc.ocultarAllProc();
+     Mem.oculterallMem();
     movePlaca();
 })
 const PM ={
@@ -711,6 +783,7 @@ const PM ={
         this.partesPMOcultar();
         this.diferPMOcultar();
         this.fallasPMOcultar();
+        
     },
     partesPMMOstrar: function (){
         document.getElementById("PregPartesPM").style.display="block";
@@ -745,6 +818,11 @@ const PM ={
     },
     fallasPMOcultar: function (){
         document.getElementById("PregFallasPM").style.display="none";
+    }, ocultarAllPM: function(){
+        this.partesPMOcultar();
+        this.diferPMOcultar();
+        this.tiposPMOcultar();
+        this.fallasPMOcultar();
     }
 
 }
@@ -759,18 +837,21 @@ const Mem ={
         this.fallasMEMOcultar();
     },
     partesMEMMOstrar: function (){
+        moveRam();
         document.getElementById("PregPartesMem").style.display="block";
         this.tiposMEMOcultar();
         this.diferMEMOcultar();
         this.fallasMEMOcultar();
     },
     diferMEMMOstrar: function (){
+        moveRam();
         document.getElementById("PregDifMem").style.display="block";
         this.partesMEMOcultar();
         this.tiposMEMOcultar();
         this.fallasMEMOcultar();
     },
     fallasMEMMOstrar: function (){
+        moveRam();
         document.getElementById("PregFallasMem").style.display="block";
         this.partesMEMOcultar();
         this.diferMEMOcultar();
@@ -789,12 +870,17 @@ const Mem ={
     
     fallasMEMOcultar: function (){
         document.getElementById("PregFallasMem").style.display="none";
+    }, oculterallMem: function(){
+        this.partesMEMOcultar();
+        this.diferMEMOcultar();
+        this.tiposMEMOcultar();
+        this.fallasMEMOcultar();
     }
 
 }
 
 // funcion de  Tarj de video ocultar y mostar
-const TdeV ={
+/* const TdeV ={
     tiposTdeVMOstrar: function (){
         document.getElementById("PregTiposTVid").style.display="block";
         this.partesTdeVOcultar();
@@ -877,7 +963,7 @@ const TdeS ={
     }
 
 }
-
+ */
 // funcion de  Procesador ocultar y mostar
 
 const Proc ={
@@ -918,6 +1004,11 @@ const Proc ={
     
     fallasProcOcultar: function (){
         document.getElementById("PregFallasProc").style.display="none";
+    }, ocultarAllProc: function(){
+        this.partesProcOcultar();
+        this.diferProcOcultar();
+        this.tiposProcOcultar();
+        this.fallasProcOcultar();
     }
 
 }
@@ -937,7 +1028,7 @@ function scrollUp(){
 
 // funcion de  disco ocultar y mostar
 
-const Disc ={
+/* const Disc ={
     tiposDiscMOstrar: function (){
         document.getElementById("PregTiposDisc").style.display="block";
         this.partesDiscOcultar();
@@ -977,7 +1068,7 @@ const Disc ={
         document.getElementById("PregFallasDisc").style.display="none";
     }
 
-}
+} */
 
 function Mostrarma(){
     window.scroll({
